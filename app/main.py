@@ -8,19 +8,20 @@ class Person:
         self.husband = None
         Person.people[self.name] = self
 
+
 def create_person_list(people_list: list) -> list:
     Person.people = {}
 
-    persons = [Person(p["name"], p["age"]) for p in people_list]
+    persons = [Person(pupu["name"], pupu["age"]) for pupu in people_list]
 
-    for p in people_list:
-        person_instance = Person.people[p["name"]]
+    for pupu in people_list:
+        person_instance = Person.people[pupu["name"]]
 
-        wife_name = p.get("wife")
+        wife_name = pupu.get("wife")
         if wife_name is not None:
             person_instance.wife = Person.people[wife_name]
 
-        husband_name = p.get("husband")
+        husband_name = pupu.get("husband")
         if husband_name is not None:
             person_instance.husband = Person.people[husband_name]
 
